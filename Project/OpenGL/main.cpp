@@ -24,10 +24,6 @@ void Keyboard(unsigned char ch, int x1, int y1) {
 	if (ch == 'd') {
 		player.Rotate(10);
 	}
-
-
-
-
 }
 
 void Timer(int value) {

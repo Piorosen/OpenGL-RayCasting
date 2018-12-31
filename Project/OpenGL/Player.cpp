@@ -16,14 +16,14 @@ void Player::Move(bool isForward)
 	Location += Forward * Vector2D(move * i,move * i);
 	Forward.Rotate(-radian);
 	cout << "위치 : " << Location.x << " " << Location.y << endl;
-	cout << "로테 : " << radian << endl;
+	cout << "로테 : " << radian  << endl;
 }
 
 void Player::Rotate(double angle)
 {
 	double rad = CalcRad(angle);
 	radian += rad;
-	if (radian > PI * 2) {
+	if (radian >= PI * 2) {
 		radian -= PI * 2;
 	}
 	if (radian < 0) {
