@@ -1,16 +1,20 @@
 #include "main.h"
 
 
-
+Player player;
 
 void Display() {
 	glClear(GLUT_RGB);
 
+	player.Draw();
 
 	glutSwapBuffers();
 }
 
 void Keyboard(unsigned char ch, int x1, int y1) {
+
+
+
 
 }
 

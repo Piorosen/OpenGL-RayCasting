@@ -33,4 +33,9 @@ public:
 			}
 		}
 	}
+
+	int GetTile(int x, int y) {
+		return tile[this->y * y + x];
+	}
+
 };
