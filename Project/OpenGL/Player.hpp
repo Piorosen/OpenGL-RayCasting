@@ -2,6 +2,7 @@
 #include <string>
 
 #include "Map.hpp"
+#include "Vector2D.hpp"
 
 #define PI 3.14159265358979323846264338327950288 
 
@@ -9,7 +10,8 @@ using namespace std;
 
 class Player {
 private:
-	double x, y;
+	Vector2D Forward;
+	Vector2D Location;
 	double radian;
 	double move;
 	double FOV;
@@ -22,10 +24,15 @@ private:
 	}
 
 public:
+	Player() {
+		Forward = std::move(Vector2D(1, 0));
+		move = 1;
+	}
+
 	bool MapLoad(string path);
 
-	void Move();
+	void Move(bool isForward);
 	void Rotate(double angle);
-	void Draw();
+	void Draw(const int& width, const int& height);
 
 };

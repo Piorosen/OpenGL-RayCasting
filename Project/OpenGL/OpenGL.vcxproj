@@ -130,9 +130,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Color.hpp" />
+    <ClInclude Include="Map.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Vector2D.hpp" />
   </ItemGroup>

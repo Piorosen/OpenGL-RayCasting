@@ -24,7 +24,7 @@ private:
 
 
 public:
-	bool LoadMap(string path, int x, int y) {
+	/*bool LoadMap(std::string path, int x, int y) {
 		AllocTile(x, y);
 		ifstream read(path);
 		for (int my = 0; my < y; my++) {
@@ -32,7 +32,7 @@ public:
 				read >> tile[y * my + mx];
 			}
 		}
-	}
+	}*/
 
 	int GetTile(int x, int y) {
 		return tile[this->y * y + x];
