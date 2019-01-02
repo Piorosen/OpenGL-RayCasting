@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 #include <fstream>
+#include <iostream>
 
+using namespace std;
 class Map {
 private:
 	int x, y;
@@ -11,6 +13,7 @@ private:
 		if (tile != nullptr) {
 			delete[] tile;
 		}
+		tile = nullptr;
 	}
 
 	void AllocTile(int x, int y) {
@@ -22,9 +25,8 @@ private:
 		this->y = y;
 	}
 
-
 public:
-	/*bool LoadMap(std::string path, int x, int y) {
+	bool LoadMap(string path, int x, int y) {
 		AllocTile(x, y);
 		ifstream read(path);
 		for (int my = 0; my < y; my++) {
@@ -32,7 +34,8 @@ public:
 				read >> tile[y * my + mx];
 			}
 		}
-	}*/
+		return true;
+	}
 
 	int GetTile(int x, int y) {
 		return tile[this->y * y + x];

@@ -6,12 +6,14 @@ Player player;
 void Display() {
 	glClear(GLUT_RGB);
 
+	player.Draw(800, 600);
+
+
 
 	glutSwapBuffers();
 }
 
 void Keyboard(unsigned char ch, int x1, int y1) {
-
 	if (ch == 'w') {
 		player.Move(true);
 	}
@@ -24,18 +26,15 @@ void Keyboard(unsigned char ch, int x1, int y1) {
 	if (ch == 'd') {
 		player.Rotate(10);
 	}
-}
-
-void Timer(int value) {
-
+	glutPostRedisplay();
 }
 
 int main() {
+	player.MapLoad("D:\\map.txt");
 	glutInitWindowSize(800, 600);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
 	glutCreateWindow("HelloOpenGL");
-	glutDisplayFunc(Display);
-	glutTimerFunc(0, Timer, 0);
+	glutDisplayFunc(Display);\
 	glutKeyboardFunc(Keyboard);
 	glutMainLoop();
 	return 0;

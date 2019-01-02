@@ -1,11 +1,8 @@
 #include "Player.hpp"
 
-void Player::CastRay(double rad)
-{
-}
 
 bool Player::MapLoad(string path) {
-	//	map.LoadMap(path, 10, 10);
+	map.LoadMap(path, 10, 10);
 	return true;
 }
 
@@ -33,7 +30,21 @@ void Player::Rotate(double angle)
 
 void Player::Draw(const int& width, const int& height)
 {
-	for (int i = 0; i < width; i++) {
+	for (int x = 0; x < width; x++)
+	{
+		// Where on the screen the ray goes through
+		double rayScreenPos = (-RENDER_WIDTH / 2 + x);
 
+		// The distance from the viewer to the point on the screen
+		double rayViewDist = sqrt((rayScreenPos * rayScreenPos) + (viewDist * viewDist));
+
+		// The angle of the ray, relative to the viewing direction.
+		double rayAngle = asin(rayScreenPos / rayViewDist);
+
+		CastRay(playerRot + rayAngle, x);
 	}
+}
+
+void Player::CastRay(double rad)
+{
 }
