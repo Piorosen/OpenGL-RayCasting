@@ -3,6 +3,8 @@
 #include <fstream>
 #include <iostream>
 
+#include "Vector2D.hpp"
+
 using namespace std;
 class Map {
 private:
@@ -39,6 +41,9 @@ public:
 
 	int GetTile(int x, int y) {
 		return tile[this->y * y + x];
+	}
+	int GetTile(Vector2D location) {
+		return tile[this->y * (int)location.y + (int)location.x];
 	}
 
 };

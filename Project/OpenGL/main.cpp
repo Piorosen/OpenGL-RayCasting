@@ -1,16 +1,14 @@
 #include "main.h"
 
 
-Player player;
+Player player(5,5);
 
 void Display() {
-	glClear(GLUT_RGB);
+	glClear(GL_COLOR_BUFFER_BIT);
 
 	player.Draw(800, 600);
 
-
-
-	glutSwapBuffers();
+	glFlush();
 }
 
 void Keyboard(unsigned char ch, int x1, int y1) {
@@ -32,7 +30,7 @@ void Keyboard(unsigned char ch, int x1, int y1) {
 int main() {
 	player.MapLoad("D:\\map.txt");
 	glutInitWindowSize(800, 600);
-	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+	glutInitDisplayMode(GLUT_RGB);
 	glutCreateWindow("HelloOpenGL");
 	glutDisplayFunc(Display);\
 	glutKeyboardFunc(Keyboard);
