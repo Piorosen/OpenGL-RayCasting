@@ -3,7 +3,7 @@
 
 
 bool Player::MapLoad(string path) {
-	return map.LoadMap(path, 10, 10);
+	return map.LoadMap(path, 20, 10);
 }
 
 void Player::Move(bool isForward)
@@ -136,7 +136,9 @@ void Player::DrawLine(int x, double Height, int tile)
 	else if (tile == 2){
 		glColor3b(0 + (Height / 10), 255 + (Height / 10), 255 + (Height / 10));
 	}
-	glVertex2f(((x - (MapX / 2.0)) / (MapX / 2)), -Height / MapY);
-	glVertex2f(((x - (MapX / 2.0)) / (MapX / 2)), +Height / MapY);
+	for (int t = -Height; t <= +Height; t++) {
+
+		glVertex2f(((x - (MapX / 2.0)) / (MapX / 2)), t / MapY);
+	}
 	glEnd();
 }
